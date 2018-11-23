@@ -1,0 +1,36 @@
+deployment:
+  name: $APP_NAME
+  image:
+    name: $APP_NAME
+    repository: 429919990249.dkr.ecr.eu-west-1.amazonaws.com/mygreatcluster.k8s.local
+    version: $APP_VERSION
+  containerPort: 4003
+  replicas: 2
+  env:
+    - name: NODE_ENV
+      value: production
+    - name: COMMERCETOOLS_PROJECT_KEY
+      valueFrom:
+        secretKeyRef:
+          name: prod-commercetools
+          key: projectKey
+    - name: COMMERCETOOLS_ADMIN_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: prod-commercetools
+          key: adminClientId
+    - name: COMMERCETOOLS_ADMIN_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: prod-commercetools
+          key: adminClientSecret
+    - name: COMMERCETOOLS_USER_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: prod-commercetools
+          key: userClientId
+    - name: COMMERCETOOLS_USER_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: prod-commercetools
+          key: userClientSecret

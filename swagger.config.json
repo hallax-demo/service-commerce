@@ -7,7 +7,7 @@
     "description": "A CXCloud Microservice",
     "license": "ISC",
     "produces": ["application/json"],
-    "version": "0.2.0",
+    "version": "0.0.1",
     "securityDefinitions": {
       "token": {
         "type": "apiKey",
